@@ -91,9 +91,10 @@
   !*** ./entry.js ***!
   \******************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("document.write(\"Yay!\");\n\n\n//# sourceURL=webpack:///./entry.js?");
+"use strict";
+eval("\n\ndocument.write(\"Yay!\");\n\n//# sourceURL=webpack:///./entry.js?");
 
 /***/ })
 
