@@ -26,9 +26,10 @@ module.exports = {
           options: {
             presets: [
               'es2015',
-              "stage-0",
-              "react",
-              "env",
+              'react',
+              'stage-0',
+              // 'stage-1',
+              // 'env',
             ]
           }
         }
