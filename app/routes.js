@@ -9,7 +9,5 @@ import {
 import Layout from './components/Layout'
 
 export default () => (
-	<Router>
-			<Route path='/' component={Layout} />
-	</Router> 
+	<Route path='/' component={Layout} />
 )

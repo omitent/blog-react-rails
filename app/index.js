@@ -11,6 +11,8 @@ import Routes from './routes';
 import Layout from './components/Layout';
 
 ReactDOM.render(
-	<Routes/>,
+	<Router>
+		<Routes/>
+	</Router>,
 	document.getElementById('app')
 );
