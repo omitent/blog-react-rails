@@ -1,18 +1,11 @@
 import 'purecss/build/pure.css'
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
-import Routes from './routes';
+import {Router, browserHistory} from 'react-router';
 
-import Layout from './components/Layout';
+import routes from './routes';
 
 ReactDOM.render(
-	<Router>
-		<Routes/>
-	</Router>,
+	<Router routes={routes} history={browserHistory} />,
 	document.getElementById('app')
 );

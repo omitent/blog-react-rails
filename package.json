@@ -20,17 +20,15 @@
     "css-loader": "^1.0.0",
     "html-loader": "^0.5.5",
     "style-loader": "^0.21.0",
-    "webpack": "^4.16.5",
+    "webpack": "^4.17.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "html-webpack-plugin": "^3.2.0",
     "purecss": "^1.0.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-router": "^4.3.1",
-    "react-router-config": "^1.0.0-beta.4",
-    "react-router-dom": "^4.3.1"
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^3.0.0"
   }
 }

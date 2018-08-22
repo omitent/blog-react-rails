@@ -1,13 +1,20 @@
 import React from 'react'
 
 import {
-  BrowserRouter as Router,
   Route,
-  Switch
-} from 'react-router-dom'
+  Redirect,
+  IndexRoute
+} from 'react-router'
 
-import Layout from './components/Layout'
+import c from './components';
 
-export default () => (
-	<Route path='/' component={Layout} />
-)
+const routes = 
+	<Route>
+		<Redirect from='/' to='/contacts' />
+		<Route path='contacts' component={c.Layout}>
+			<IndexRoute component={c.Collection} />
+			<Route path=':contactId' component={c.Show} />
+		</Route>
+	</Route>;
+
+export default routes;
