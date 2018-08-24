@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styles from '../assets/sass/collection.sass'
 import Contact from './Contact'
 import data from './data'
 
@@ -7,7 +7,7 @@ class Collection extends React.Component {
 	
 	render() {
 		return(
-			<div id='Collection'>
+			<div id='Collection' className={styles.main}>
 				{this.newContact()}
 				<div className='pure-g'>
 					{
