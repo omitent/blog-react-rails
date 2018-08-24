@@ -40,6 +40,21 @@ module.exports = {
           "style-loader",
           "css-loader"
         ]
+      },
+      {
+        test: /\.(scss|sass)$/,
+      	use: [
+          {
+            loader: 'style-loader',
+          },{
+            loader: 'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+          },{
+            loader: 'sass-loader',
+            options: {
+              includePaths: ['./app/assets/sass', './app/assets/scss']
+            }
+          }
+        ]      		
       }
     ]
   }
