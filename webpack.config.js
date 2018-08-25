@@ -30,7 +30,8 @@ module.exports = {
               'stage-0',
               // 'stage-1',
               // 'env',
-            ]
+            ],
+            plugins: ['transform-decorators-legacy'],
           }
         }
       },

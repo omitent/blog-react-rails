@@ -1,8 +1,9 @@
 import React from 'react';
+import { observer} from 'mobx-react';
 import styles from '../assets/sass/collection.sass'
 import Contact from './Contact'
-import data from './data'
 
+@observer(['contacts'])
 class Collection extends React.Component {
 	
 	render() {
@@ -11,8 +12,8 @@ class Collection extends React.Component {
 				{this.newContact()}
 				<div className='pure-g'>
 					{
-						this.state.contacts.map(
-							stuff => <Contact key={stuff.id} {...stuff} />
+						this.props.contacts.all.slice().map(
+							store => <Contact key={store.id} {...store} />
 						)
 					}
 				</div>
@@ -41,25 +42,17 @@ class Collection extends React.Component {
 	addContact = (event) => {
 		event.preventDefault();
 
-		const contacts = this.state.contacts;
+		const contacts = this.props.contacts.all.slice();
 		const newId = contacts[contacts.length - 1].id + 1;
 
-		this.setState({
-			contacts: contacts.concat({ 
-				id: newId, 
-				name: this.refs.name.value, 
-				status: this.refs.status.value
-			})
-		})
+		this.props.contacts.add({
+			id: newId,
+			name: this.refs.name.value, 
+			status: this.refs.status.value
+		});
+
 		this.refs.name.value = null;
 		this.refs.status.value = null;
-
-	}
-	/*Not Arrow Functions */
-	componentWillMount() {
-		this.setState({
-			contacts: data,
-		});
 	}
 
 }
