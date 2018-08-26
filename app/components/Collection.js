@@ -6,6 +6,10 @@ import Contact from './Contact'
 @observer(['contacts'])
 class Collection extends React.Component {
 	
+	componentWillMount() {
+		this.props.contacts.fetchAll();
+	}
+
 	render() {
 		return(
 			<div id='Collection' className={styles.main}>
