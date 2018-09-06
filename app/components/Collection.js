@@ -34,8 +34,8 @@ class Collection extends React.Component {
 					<fieldset>
 						<legend>New Post</legend>
 
-						<input ref='name'   type='text' placeholder='Some Name' />
-						<input ref='status' type='text' placeholder='Person?' />
+						<input ref='title'       type='text' placeholder='Some Title' />
+						<input ref='body'        type='text' placeholder='Text' />
 
 						<button type='submit' className='pure-button pure-button-primary'>Add</button>
 					</fieldset>
@@ -47,16 +47,14 @@ class Collection extends React.Component {
 		event.preventDefault();
 
 		const posts = this.props.posts.all.slice();
-		const newId = posts[posts.length - 1].id + 1;
 
 		this.props.posts.add({
-			id: newId,
-			name: this.refs.name.value, 
-			status: this.refs.status.value
+			title: this.refs.title.value, 
+			body: this.refs.body.value
 		});
 
-		this.refs.name.value = null;
-		this.refs.status.value = null;
+		this.refs.title.value = null;
+		this.refs.body.value = null;
 	}
 
 }

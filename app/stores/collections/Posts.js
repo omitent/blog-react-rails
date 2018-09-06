@@ -11,13 +11,27 @@ class Posts {
 		const status = await response.status;
 
 		if (status === 200) {
-			this.all = response.json();
+			this.all = await response.json();
 		}
 	}
 
-	@action add(data) {
-		const existing = this.all;
-		this.all = existing.concat(data);
+	@action async add(data) {
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+
+		const options = {
+			method: 'POST',
+			headers, 
+			body: JSON.stringify(data),
+		}
+		console.log(options);
+		const request = new Request('http://localhost:3000/v1/category/1/post/', options);
+		const response = await fetch(request);
+		const status = await response.status;
+
+		if (status === 201){
+			this.fetchAll();
+		}
 	}
 
 	@action find(postId){

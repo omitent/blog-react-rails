@@ -18,10 +18,10 @@ class Post extends React.Component {
 			<div className={`${styles.post} pure-u-1-3`}>
 				<h2>
 					<Link to={`/posts/${this.props.id}`}>
-						{this.props.name}
+						{this.props.title}
 					</Link>
 				</h2>
-				<p>Status: {this.props.status}</p>
+				<p>Created at: {this.props.created_at}</p>
 				<a 
 					href='#' 
 					className={`${styles.removeButton} pure-button`} 
