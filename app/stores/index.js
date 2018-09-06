@@ -1,7 +1,7 @@
-import contacts from './collections/Contacts'
+import posts from './collections/Posts'
 
 const stores = {
-	contacts,
+	posts,
 	
 };
 

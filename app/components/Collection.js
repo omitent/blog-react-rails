@@ -1,23 +1,23 @@
 import React from 'react';
 import { observer} from 'mobx-react';
 import styles from '../assets/sass/collection.sass'
-import Contact from './Contact'
+import Post from './Post'
 
-@observer(['contacts'])
+@observer(['posts'])
 class Collection extends React.Component {
 	
 	componentWillMount() {
-		this.props.contacts.fetchAll();
+		this.props.posts.fetchAll();
 	}
 
 	render() {
 		return(
 			<div id='Collection' className={styles.main}>
-				{this.newContact()}
+				{this.newPost()}
 				<div className='pure-g'>
 					{
-						this.props.contacts.all.slice().map(
-							store => <Contact key={store.id} {...store} />
+						this.props.posts.all.slice().map(
+							store => <Post key={store.id} {...store} />
 						)
 					}
 				</div>
@@ -27,12 +27,12 @@ class Collection extends React.Component {
 
 	/* Arrow Functions */	
 	
-	newContact = () =>
+	newPost = () =>
 		<div className='pure-g'> 
 			<div className='pure-u-12-24'>
-				<form className='pure-form' onSubmit={this.addContact}>
+				<form className='pure-form' onSubmit={this.addPost}>
 					<fieldset>
-						<legend>New Contact</legend>
+						<legend>New Post</legend>
 
 						<input ref='name'   type='text' placeholder='Some Name' />
 						<input ref='status' type='text' placeholder='Person?' />
@@ -43,13 +43,13 @@ class Collection extends React.Component {
 			</div>
 		</div>;
 
-	addContact = (event) => {
+	addPost = (event) => {
 		event.preventDefault();
 
-		const contacts = this.props.contacts.all.slice();
-		const newId = contacts[contacts.length - 1].id + 1;
+		const posts = this.props.posts.all.slice();
+		const newId = posts[posts.length - 1].id + 1;
 
-		this.props.contacts.add({
+		this.props.posts.add({
 			id: newId,
 			name: this.refs.name.value, 
 			status: this.refs.status.value
